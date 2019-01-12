@@ -41,13 +41,13 @@ public class Controler: MonoBehaviour{
                 var structure = Instantiate(tile, new Vector3(x, y, 0), Quaternion.identity);
                 Tile tileScript = tile.GetComponent<Tile>();
                 switch (matrix[matrix.Count - y - 1][x]){
-                    case "rb":
+                    case "RB":
                         tileScript.type = TileType.resources;
                         break;
-                    case "ib":
+                    case "IB":
                         tileScript.type = TileType.wall;
                         break;
-                    case "pb":
+                    case "PB":
                         tileScript.type = TileType.trap;
                         break;
                 }

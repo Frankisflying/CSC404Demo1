@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tile : MonoBehaviour
 { 
@@ -10,17 +11,21 @@ public class Tile : MonoBehaviour
     public GameObject pipe;
     public GameObject wall;
     public GameObject regularBlock;
+    public Slider progressbar;
+    private bool done;
 
     // Start is called before the first frame update
     void Start()
     {
         pressed = false;
+        progress = 0;
         UpdateBlock(type);
+        done = false;
     }
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         if (Input.GetMouseButtonDown(0))
         {
             pressed = true;
@@ -28,6 +33,8 @@ public class Tile : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             pressed = false;
+            progress = 0;
+            done = false;
         }
         UpdateProgress();
     }
@@ -38,9 +45,15 @@ public class Tile : MonoBehaviour
         {
             if (type != TileType.wall && type != TileType.pipe)
             {
-                progress += 1;
-                if (progress == 100)
+                progressbar.gameObject.SetActive(true);
+                if (progress < 100)
                 {
+                    progress += 1;
+                }
+                if (progress == 100 && done == false)
+                {
+                    done = true;
+                    progressbar.gameObject.SetActive(false);
                     switch (type)
                     { 
                         case TileType.empty:
@@ -61,12 +74,17 @@ public class Tile : MonoBehaviour
                             break;
                     }
                 }
+                if (done == true)
+                {
+                    progressbar.gameObject.SetActive(false);
+                }
             }
         }
         else
         {
             if (progress != 100)
             {
+                progressbar.gameObject.SetActive(false);
                 progress = 0;
             }
         }
