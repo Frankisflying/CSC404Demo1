@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 { 
-    public int progress;
-    private bool pressed = false;
-    public TileType type;
+    public static int progress;
+    private bool pressed;
+    public static TileType type;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        pressed = false;
     }
 
     // Update is called once per frame
@@ -32,13 +32,40 @@ public class Tile : MonoBehaviour
     {
         if (pressed)
         {
-            progress += 1;
+            if (type != TileType.wall)
+            {
+                progress += 1;
+                if (progress == 100)
+                {
+                    switch (type)
+                    { 
+                        case TileType.empty:
+                            type = TileType.resources;
+                            break;
+                        case TileType.trap:
+                            type = TileType.pipe;
+                            break;
+                        case TileType.resources:
+                            type = TileType.empty;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (progress != 100)
+            {
+                progress = 0;
+            }
         }
     }
 
     void UpdateResource()
     {
-        
+
     }
 }
 
