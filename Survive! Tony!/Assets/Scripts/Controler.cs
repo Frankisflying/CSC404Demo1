@@ -8,7 +8,8 @@ public class SceneBuilder: MonoBehaviour{
     public GameObject iblock;
     public GameObject pblock;
 
-    public int resource;
+    public static int resource;
+    public static List<List<Tile>> tiles = new List<List<Tile>>();
 
     public int hight;
     public int width;
