@@ -5,8 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
-    [HideInInspector] private bool jump = false;
-    public float forceMagnitude = 3;
     private Rigidbody2D body;
     public float jumpSpeed = 10;
     public LayerMask groundLayer;
