@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 { 
-    public static int progress;
+    public int progress;
     private bool pressed;
     public static TileType type;
+    public GameObject pipe;
+    public GameObject wall;
+    public GameObject regularBlock;
 
     // Start is called before the first frame update
     void Start()
     {
         pressed = false;
+        UpdateBlock(type);
     }
 
     // Update is called once per frame
@@ -42,13 +46,16 @@ public class Tile : MonoBehaviour
                         case TileType.empty:
                             type = TileType.resources;
                             Controler.resource -= 1;
+                            UpdateBlock(type);
                             break;
                         case TileType.trap:
                             type = TileType.pipe;
+                            UpdateBlock(type);
                             break;
                         case TileType.resources:
                             type = TileType.empty;
                             Controler.resource += 1;
+                            UpdateBlock(type);
                             break;
                         default:
                             break;
@@ -65,9 +72,36 @@ public class Tile : MonoBehaviour
         }
     }
 
-    void UpdateResource()
+    void UpdateBlock(TileType tileType)
     {
-        
+        switch (tileType)
+        {
+            case TileType.empty:
+                pipe.SetActive(false);
+                wall.SetActive(false);
+                regularBlock.SetActive(false);
+                break;
+            case TileType.pipe:
+                pipe.SetActive(true);
+                wall.SetActive(false);
+                regularBlock.SetActive(false);
+                break;
+            case TileType.resources:
+                pipe.SetActive(false);
+                wall.SetActive(false);
+                regularBlock.SetActive(true);
+                break;
+            case TileType.trap:
+                pipe.SetActive(false);
+                wall.SetActive(false);
+                regularBlock.SetActive(true);
+                break;
+            case TileType.wall:
+                pipe.SetActive(false);
+                wall.SetActive(true);
+                regularBlock.SetActive(false);
+                break;
+        }
     }
 }
 
