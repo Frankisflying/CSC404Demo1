@@ -2,13 +2,13 @@
 using System.IO;
 using System.Collections.Generic;
 
-public class SceneBuilder: MonoBehaviour{
+public class Controler: MonoBehaviour{
 
     public GameObject rblock;
     public GameObject iblock;
     public GameObject pblock;
 
-    public int resource;
+    public static int resource;
 
     public int hight;
     public int width;

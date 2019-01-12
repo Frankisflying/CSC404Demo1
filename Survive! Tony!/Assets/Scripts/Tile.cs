@@ -32,7 +32,7 @@ public class Tile : MonoBehaviour
     {
         if (pressed)
         {
-            if (type != TileType.wall)
+            if (type != TileType.wall && type != TileType.pipe)
             {
                 progress += 1;
                 if (progress == 100)
@@ -41,12 +41,14 @@ public class Tile : MonoBehaviour
                     { 
                         case TileType.empty:
                             type = TileType.resources;
+                            Controler.resource -= 1;
                             break;
                         case TileType.trap:
                             type = TileType.pipe;
                             break;
                         case TileType.resources:
                             type = TileType.empty;
+                            Controler.resource += 1;
                             break;
                         default:
                             break;
@@ -65,7 +67,7 @@ public class Tile : MonoBehaviour
 
     void UpdateResource()
     {
-
+        
     }
 }
 
