@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{E4348099-CEC3-5337-9187-572C0E81962E}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controler.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Tile.cs" Line="42" Column="21" />
+      <File FileName="Assets/Scripts/Controler.cs" Line="7" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
