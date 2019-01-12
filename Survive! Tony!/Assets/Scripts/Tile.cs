@@ -6,7 +6,7 @@ public class Tile : MonoBehaviour
 { 
     public int progress;
     private bool pressed;
-    public static TileType type;
+    public TileType type;
     public GameObject pipe;
     public GameObject wall;
     public GameObject regularBlock;
