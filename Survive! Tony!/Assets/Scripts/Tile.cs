@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 { 
-    public static int progress;
+    public int progress;
     private bool pressed;
-    public static TileType type;
+    public TileType type;
 
     // Start is called before the first frame update
     void Start()
