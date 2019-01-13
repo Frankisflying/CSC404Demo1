@@ -24,19 +24,20 @@ public class Tile : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    { 
-        if (Input.GetMouseButtonDown(0))
-        {
-            pressed = true;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            pressed = false;
-            progress = 0;
-            done = false;
-        }
+    void Update(){
         UpdateProgress();
+    }
+
+    private void OnMouseDown(){
+        pressed = true;
+    }
+
+    private void OnMouseUp(){
+        pressed = false;
+    }
+
+    private void OnMouseExit(){
+        pressed = false;
     }
 
     void UpdateProgress()
@@ -48,7 +49,7 @@ public class Tile : MonoBehaviour
                 progressbar.gameObject.SetActive(true);
                 if (progress < 100)
                 {
-                    progress += 1;
+                    progress += 5;
                 }
                 if (progress == 100 && done == false)
                 {

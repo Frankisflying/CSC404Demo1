@@ -7,6 +7,8 @@
         <e p="Scripts" t="Include">
           <e p="Controler.cs" t="Include" />
           <e p="Player.cs" t="Include" />
+          <e p="Progressbar.cs" t="Include" />
+          <e p="StartScene.cs" t="Include" />
           <e p="Tile.cs" t="Include" />
         </e>
       </e>
